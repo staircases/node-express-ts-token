@@ -23,7 +23,7 @@ class Server {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(morganMiddleware.config);
-    // this.app.use(authorizationMiddleware);
+    this.app.use(authorizationMiddleware);
   }
 
   errorHandler() {

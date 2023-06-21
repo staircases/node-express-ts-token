@@ -29,6 +29,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const routes = __importStar(require("./routes"));
+const authorizationMiddleware_1 = __importDefault(require("./middlewares/authorizationMiddleware"));
 const morganMiddleware_1 = __importDefault(require("./middlewares/morganMiddleware"));
 const logger_1 = __importDefault(require("./logging/logger"));
 const errorMiddleware_1 = __importDefault(require("./middlewares/errorMiddleware"));
@@ -46,7 +47,7 @@ class Server {
         this.app.use(express_1.default.json());
         this.app.use(express_1.default.urlencoded({ extended: true }));
         this.app.use(morganMiddleware_1.default.config);
-        // this.app.use(authorizationMiddleware);
+        this.app.use(authorizationMiddleware_1.default);
     }
     errorHandler() {
         this.app.use(errorMiddleware_1.default);
