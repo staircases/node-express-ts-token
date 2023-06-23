@@ -34,7 +34,7 @@ router.post('/', (req, resp) => __awaiter(void 0, void 0, void 0, function* () {
         return;
     }
     const token = jsonwebtoken_1.default.sign({ data: clientId }, environment_1.default.TOKEN_SECRET, {
-        expiresIn: '30m',
+        expiresIn: '3s',
     });
     resp.status(200).json({ access_token: token });
 }));

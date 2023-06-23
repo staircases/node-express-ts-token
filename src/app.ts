@@ -9,7 +9,7 @@ import { db } from './database/models';
 
   // initialize models
   db.sequelize.sync({
-    force: true,
+    force: false,
   });
 })();
 

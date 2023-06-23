@@ -21,7 +21,7 @@ const models_1 = require("./database/models");
     yield configuration_1.default.connect();
     // initialize models
     models_1.db.sequelize.sync({
-        force: true,
+        force: false,
     });
 }))();
 const app = (0, express_1.default)();
